@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import dev.tiago.ecommerce.springboot_ecommerce.entites.Category;
 import dev.tiago.ecommerce.springboot_ecommerce.entites.Order;
 import dev.tiago.ecommerce.springboot_ecommerce.entites.OrderItem;
+import dev.tiago.ecommerce.springboot_ecommerce.entites.Payment;
 import dev.tiago.ecommerce.springboot_ecommerce.entites.Product;
 import dev.tiago.ecommerce.springboot_ecommerce.entites.User;
 import dev.tiago.ecommerce.springboot_ecommerce.entites.enums.OrderStatus;
@@ -69,6 +70,8 @@ public class TestConfig implements CommandLineRunner {
 		p3.getCategories().add(cat3);
 		p4.getCategories().add(cat3);
 		p5.getCategories().add(cat2);
+		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+		o1.setPayment(pay1);
 		
 		userRepository.saveAll(Arrays.asList(u1, u2));
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3));
